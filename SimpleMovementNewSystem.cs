@@ -19,7 +19,8 @@ public class SimpleMovementNewSystem : MonoBehaviour
         // Lager en Vector3 som fylles med data på x og z posisjon fra inputVector og normaliserer.
         Vector3 movementVector = new Vector3(inputVector.x, 0f, inputVector.y).normalized;
 
-        // Flytter spilleren relativt til nåværende posisjon.
-        transform.Translate(movementVector * (movementSpeed * Time.deltaTime));
+        // Flytter spilleren relativt til nåværende posisjon i world space.
+        transform.Translate(movementVector * (movementSpeed * Time.deltaTime), Space.World);
     }
 }
+
